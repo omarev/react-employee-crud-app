@@ -7,7 +7,8 @@ import EmployeeItem from './EmployeeItem'
 class EmployeeList extends Component {
 
   state = {
-    items: []
+    items: [],
+    searchWord: ''
   };
 
   componentDidMount() {
@@ -20,7 +21,9 @@ class EmployeeList extends Component {
 
   render() {
 
-    const items = this.state.items.map((item) => {
+    const items = this.state.items.filter((obj, key) => {
+        return obj.employee_name.toLowerCase().indexOf(this.state.searchWord.toLowerCase()) !== -1;
+       } ).map((item) => {
 
         return <EmployeeItem
           key={item.id}
@@ -50,7 +53,9 @@ class EmployeeList extends Component {
                       action={{ color: 'blue', content: 'Search' }}
                       icon='search'
                       iconPosition='left'
-                      placeholder='name'
+                      placeholder='search by name'
+                      value={this.state.searchWord}
+                      onChange={e => this.setState({ searchWord: e.currentTarget.value })}
                     />
           </div>
         </div>
