@@ -26,8 +26,29 @@ class EmployeeView extends Component {
   render() {
 
     return (
-      <div>
-        <Link className="ui button" to="/">Back to Employee list</Link>
+      <div className="ui masthead vertical segment">
+
+        <div className="ui stackable two column grid">
+          <div className="column">
+
+            <h2 className="ui header">
+
+              <i aria-hidden="true" className="users icon"></i>
+              <div className="content">
+                Employee view
+                <div className="sub header">Manage employee data</div>
+              </div>
+
+            </h2>
+            <br/>
+          </div>
+          <div className="column">
+          </div>
+        </div>
+
+        <Link className="ui button floated right" to="/">Back to Employee list</Link>
+
+        <div className="ui divider"></div>
 
         <div>
           <Image avatar size='tiny' src={this.state.employee_image || image} />

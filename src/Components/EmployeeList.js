@@ -32,15 +32,16 @@ class EmployeeList extends Component {
 
     <div className="ui stackable two column grid">
       <div className="column">
-        <h2 class="ui header">
+        <h2 className="ui header">
 
-          <i aria-hidden="true" class="settings icon"></i>
-          <div class="content">
+          <i aria-hidden="true" className="users icon"></i>
+          <div className="content">
             Employee list
-            <div class="sub header">Manage employee data</div>
+            <div className="sub header">Manage employee data</div>
           </div>
 
         </h2>
+        <br/>
       </div>
       <div className="column ul floated right">
         <div className="ui right floated menu">
@@ -61,7 +62,7 @@ class EmployeeList extends Component {
 
     <br/>
 
-    <div class="ui divider"></div>
+    <div className="ui divider"></div>
 
       <List divided verticalAlign='middle' size='large'>
         {items}

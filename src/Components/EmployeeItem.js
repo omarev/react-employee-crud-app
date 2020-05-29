@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-import { Button, Image, List, Reveal } from 'semantic-ui-react'
+import {Image, List, Reveal} from 'semantic-ui-react'
 import image from '../logo.svg'
 
 const EmployeeItem = (props) => {

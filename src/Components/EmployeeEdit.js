@@ -59,9 +59,32 @@ class EmployeeEdit extends Component {
   render() {
 
     return (
+      <div className="ui masthead vertical segment">
+
+        <div className="ui stackable two column grid">
+          <div className="column">
+
+            <h2 className="ui header">
+
+              <i aria-hidden="true" className="users icon"></i>
+              <div className="content">
+                Employee {this.state.id ? 'edit' : 'create'}
+                <div className="sub header">Manage employee data</div>
+              </div>
+
+            </h2>
+            <br/>
+          </div>
+          <div className="column">
+          </div>
+        </div>
+
+        <Link className="ui button floated right" to="/">Back to Employee list</Link>
+
+        <div className="ui divider"></div>
 
       <Form onSubmit={this.submitHandler}>
-        <Link className="ui button" to="/">Back to Employee list</Link>
+
 
         <Form.Field>
           <label>Name:</label>
@@ -83,8 +106,10 @@ class EmployeeEdit extends Component {
           <input placeholder='Image' onChange={this.changeImageHandler} value={this.state.employee_image || ''} />
         </Form.Field>
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit" color='blue'>{this.state.id ? 'Edit' : 'Create'}</Button>
+        <Link className="ui button floated right" to="/">Cancel</Link>
       </Form>
+      </div>
     );
 
   }

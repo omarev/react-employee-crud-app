@@ -32,16 +32,32 @@ class EmployeeDelete extends Component {
     });
   }
 
-  CancelAction = (event) => {
-    event.preventDefault()
-    this.props.history.push('/employee')
-  }
-
   render() {
 
     return (
-      <div>
-        <Link className="ui button" to="/">Back to Employee list</Link>
+      <div className="ui masthead vertical segment">
+
+        <div className="ui stackable two column grid">
+          <div className="column">
+
+            <h2 className="ui header">
+
+              <i aria-hidden="true" className="users icon"></i>
+              <div className="content">
+                Employee delete
+                <div className="sub header">Manage employee data</div>
+              </div>
+
+            </h2>
+            <br/>
+          </div>
+          <div className="column">
+          </div>
+        </div>
+
+        <Link className="ui button floated right" to="/">Back to Employee list</Link>
+
+        <div className="ui divider"></div>
 
         <div>
           Are you sure you want to delete employee
@@ -51,7 +67,7 @@ class EmployeeDelete extends Component {
         </div>
         <div>
             <Button color='red' onClick={this.deleteAction}>Delete</Button>
-            <Button onClick={this.CancelAction}>Cancel</Button>
+            <Link className="ui button floated right" to="/">Cancel</Link>
         </div>
 
       </div>
