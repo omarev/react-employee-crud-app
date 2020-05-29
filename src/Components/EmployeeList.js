@@ -29,7 +29,11 @@ class EmployeeList extends Component {
   render() {
 
     const items = this.state.items.filter((obj, key) => {
-        return obj.employee_name.toLowerCase().indexOf(this.state.searchWord.toLowerCase()) !== -1;
+        if (obj.employee_name) {
+          return obj.employee_name.toLowerCase().indexOf(this.state.searchWord) !== -1;
+        } else {
+          return !this.state.searchWord;
+        }
       } ).sort((a, b) => {
         const sortProp = this.state.sortProp;
         const sortAsc = this.state.sortAsc;
@@ -77,7 +81,7 @@ class EmployeeList extends Component {
                       iconPosition='left'
                       placeholder='search by name'
                       value={this.state.searchWord}
-                      onChange={e => this.setState({ searchWord: e.currentTarget.value })}
+                      onChange={e => this.setState({ searchWord: e.currentTarget.value.toLowerCase() })}
                     />
           </div>
         </div>
