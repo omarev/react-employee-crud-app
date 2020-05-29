@@ -55,7 +55,7 @@ class EmployeeDelete extends Component {
           </div>
         </div>
 
-        <Link className="ui button floated right" to="/">Back to Employee list</Link>
+        <Link className="ui button floated right" to="/"><i className="icon chevron left"></i> Back to Employee list</Link>
 
         <div className="ui divider"></div>
 

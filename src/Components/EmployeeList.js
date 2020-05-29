@@ -57,7 +57,7 @@ class EmployeeList extends Component {
 
       </div>
 
-      <Link className="ui button floated right green" to="/employee/create">Add Employee</Link>
+      <Link className="ui button floated right green" to="/employee/create"><i className="icon plus"></i> Add Employee</Link>
     </div>
 
     <br/>

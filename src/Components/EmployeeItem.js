@@ -10,9 +10,9 @@ const EmployeeItem = (props) => {
   return (
     <List.Item>
       <List.Content floated='right'>
-        <Link className="ui button green" to={`/employee/${item.id}`}>VIEW</Link>
-        <Link className="ui button blue" to={`/employee/${item.id}/edit`}>EDIT</Link>
-        <Link className="ui button red" to={`/employee/${item.id}/delete`}>DELETE</Link>
+        <Link className="ui button green" to={`/employee/${item.id}`}><i className="icon eye"></i> VIEW</Link>
+        <Link className="ui button blue" to={`/employee/${item.id}/edit`}><i className="icon pencil"></i> EDIT</Link>
+        <Link className="ui button red" to={`/employee/${item.id}/delete`}><i className="icon trash"></i> DELETE</Link>
       </List.Content>
       <Reveal.Content hidden>
       <Image avatar src={item.employee_image || image} />
