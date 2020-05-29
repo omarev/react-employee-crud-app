@@ -8,7 +8,9 @@ class EmployeeList extends Component {
 
   state = {
     items: [],
-    searchWord: ''
+    searchWord: '',
+    sortAsc: true,
+    sortProp: 'id'
   };
 
   componentDidMount() {
@@ -19,11 +21,31 @@ class EmployeeList extends Component {
 
   }
 
+  toggleSort = (sortProp) => {
+    this.setState({sortProp: sortProp});
+    this.setState({sortAsc: !this.state.sortAsc});
+  }
+
   render() {
 
     const items = this.state.items.filter((obj, key) => {
         return obj.employee_name.toLowerCase().indexOf(this.state.searchWord.toLowerCase()) !== -1;
-       } ).map((item) => {
+      } ).sort((a, b) => {
+        const sortProp = this.state.sortProp;
+        const sortAsc = this.state.sortAsc;
+        const sortMod = (sortAsc ? 1 : -1);
+
+        if (sortProp === 'employee_name') {
+              return sortMod * (a[sortProp].localeCompare(b[sortProp]));
+        } else {
+           if(parseInt(a[sortProp]) < parseInt(b[sortProp]))
+             return -1 * sortMod;
+           else if(parseInt(a[sortProp]) > parseInt(b[sortProp]))
+             return 1 * sortMod;
+          return 0;
+        }
+
+    }).map((item) => {
 
         return <EmployeeItem
           key={item.id}
@@ -67,7 +89,11 @@ class EmployeeList extends Component {
 
     <br/>
 
+    <span onClick={this.toggleSort.bind(this, 'id')}>id <i className={`icon sort numeric ${this.state.sortProp === 'id' ? ( this.state.sortAsc ? 'down' : 'up') : 'disabled'}`}></i></span>&nbsp; | &nbsp;
+    <span onClick={this.toggleSort.bind(this, 'employee_name')}>name <i className={`icon sort alphabet ${this.state.sortProp === 'employee_name' ? ( this.state.sortAsc ? 'down' : 'up') : 'disabled'}`}></i></span>
+
     <div className="ui divider"></div>
+
 
       <List divided verticalAlign='middle' size='large'>
         {items}
