@@ -1,3 +1,6 @@
+
+### `Note: You must define REACT_APP_EMPLOYEE_SERVICE_ENDPOINT environment variable before starting the app`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
