@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import './App.css';
+import 'semantic-ui-css/semantic.min.css'
 
 import EmployeeList from './Components/EmployeeList'
 import EmployeeView from './Components/EmployeeView'
@@ -25,7 +26,7 @@ class App extends Component {
   render() {
 
       return (
-      <div>
+      <div className="ui container">
 
         <BrowserRouter>
           <Switch>

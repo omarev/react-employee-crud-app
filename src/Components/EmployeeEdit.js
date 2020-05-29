@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter, Link} from 'react-router-dom';
+import { Button, Form } from 'semantic-ui-react'
 import EmployeeService from '../Services/EmployeeService'
 
 class EmployeeEdit extends Component {
@@ -59,30 +60,31 @@ class EmployeeEdit extends Component {
 
     return (
 
-      <form onSubmit={this.submitHandler}>
-        <Link to="/">Back to Employee list</Link>
+      <Form onSubmit={this.submitHandler}>
+        <Link className="ui button" to="/">Back to Employee list</Link>
 
-        <div>
-          <strong>Name:</strong>
+        <Form.Field>
+          <label>Name:</label>
           <input onChange={this.changeNameHandler} value={this.state.employee_name || ''} />
-        </div>
+        </Form.Field>
 
-        <div>
-          <strong>Age:</strong>
+        <Form.Field>
+          <label>Age:</label>
           <input onChange={this.changeAgeHandler} value={this.state.employee_age|| ''} />
-        </div>
+        </Form.Field>
 
-        <div>
-          <strong>Salary:</strong>
+        <Form.Field>
+          <label>Salary:</label>
           <input onChange={this.changeSalaryHandler} value={this.state.employee_salary || ''} />
-        </div>
+        </Form.Field>
 
-        <div>
-          <strong>Image:</strong>
-          <input onChange={this.changeImageHandler} value={this.state.employee_image || ''} />
-        </div>
-        <input type="submit" value="Save" />
-      </form>
+        <Form.Field>
+          <label>Image</label>
+          <input placeholder='Image' onChange={this.changeImageHandler} value={this.state.employee_image || ''} />
+        </Form.Field>
+
+        <Button type="submit">Submit</Button>
+      </Form>
     );
 
   }

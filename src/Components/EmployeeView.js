@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter, Link} from 'react-router-dom';
+import { Image } from 'semantic-ui-react'
 import EmployeeService from '../Services/EmployeeService'
 import image from '../logo.svg'
 class EmployeeView extends Component {
@@ -26,10 +27,10 @@ class EmployeeView extends Component {
 
     return (
       <div>
-        <Link to="/">Back to Employee list</Link>
+        <Link className="ui button" to="/">Back to Employee list</Link>
 
         <div>
-          <img src={this.state.employee_image || image} alt="Employee" />
+          <Image avatar size='tiny' src={this.state.employee_image || image} />
           {this.state.employee_name}
         </div>
 
